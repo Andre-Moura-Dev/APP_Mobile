@@ -1,20 +1,48 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { styles } from "./styles";
+import { styles } from "./stylesBarraSuperior";
+import { useState } from 'react';
+import { Search } from '../Search/Search';
 
-export function BarraSuperior() {
+type BarraSuperiorProps = {
+  openDrawer: () => void
+}
+
+export function BarraSuperior({openDrawer}: BarraSuperiorProps) {
+
+  const [searchField, setSearchField] = useState(false);
+
+  function OpenSearch() {
+    if(searchField == false) {
+        setSearchField(true);
+    } else {
+        setSearchField(false);
+    }
+  }
+
   return (
+    <>
     <View style={styles.container}>
-      <Image source={require('../../images/logo-min.png')} width={160} height={80} />
+      <View style={styles.logoContainer}>
+        <Image source={require('../../assets/logo-min.png')} style={styles.logo} />
+      </View>
+      
 
       <View style={styles.buttons}>
-        <TouchableOpacity activeOpacity={0.8} onPress={() => {}}>
-            <Image source={require('../../images/sanduiche.png')} width={20} height={20} />
+        <TouchableOpacity activeOpacity={0.8} onPress={() => {openDrawer()}}>
+            <Image source={require('../../assets/sanduiche.png')} style={styles.icon} />
         </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.8} onPress={() => {}}>
-            <Image source={require('../../images/lupa.png')} width={26} height={30} />
+        <TouchableOpacity activeOpacity={0.8} onPress={() => {OpenSearch()}}>
+            <Image source={require('../../assets/lupa.png')} style={styles.iconLupa} />
         </TouchableOpacity>
       </View>
     </View>
+
+    {
+      searchField == true ? <Search /> : null
+    }
+
+    </>
+    
   );
 }
 

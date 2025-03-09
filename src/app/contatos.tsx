@@ -1,13 +1,13 @@
 import { View, Text } from "react-native";
 
-export default function Modal() {
+export default function Contatos() {
     return (
         <View style={{
             flex: 1,
             justifyContent: "center",
             alignItems: "center"
         }}>
-            <Text>Modal</Text>
+            <Text>Contatos</Text>
         </View>
     )
 }

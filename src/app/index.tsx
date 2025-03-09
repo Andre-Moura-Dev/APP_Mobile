@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { Text, TouchableOpacity, View } from "react-native";
+import { View, Text } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { BarraSuperior} from "../components/BarraSuperior/BarraSuperior";
 
@@ -8,15 +8,10 @@ export default function Index() {
         <View style={{
             flex: 1,
             justifyContent: "flex-start",
-            alignItems: "flex-start"
+            alignItems: "flex-start",
         }}>
-            <StatusBar translucent style="light" />
-            <BarraSuperior />
 
-            {/* <Text>Olá</Text>
-            <TouchableOpacity onPress={() => 
-                router.navigate("/modal")
-            }><Text>Modal</Text></TouchableOpacity> */}
+            <Text>Olá</Text>
         </View>
     )
 }
